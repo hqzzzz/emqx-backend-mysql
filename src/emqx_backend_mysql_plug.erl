@@ -9,9 +9,19 @@
 -compile(inline).
 
 
+-export([format/1,
+         pMessage/1]).
 
+pMessage(#message{id = Id,
+                qos = QoS,
+                topic = Topic,
+                from = From,
+                flags = Flags,
+                headers = Headers,
+                payload = Payload}) ->
 
--export([format/1]).
+io_lib:format("Id=~s~nQoS=~w~nTopic=~s~nPayload:~s~nFrom=~p~nFlags=~s~nHeaders=~s~n)",
+                  [format(eId2list, Id),QoS,  Topic, Payload,  From, format(flags, Flags), format(headers, Headers)]).
 
 
 format(#message{id = Id,
