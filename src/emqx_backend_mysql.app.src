@@ -1,0 +1,15 @@
+{application, emqx_backend_mysql,
+ [{description, "EMQ X Plugin Mysql Backend"},
+  {vsn, "git"},
+  {modules, []},
+  {registered, [emqx_backend_mysql_sup,emqx_backend_mysql_plug]},
+  
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {mod, {emqx_backend_mysql_app, []}},
+  {env,[]},
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.
