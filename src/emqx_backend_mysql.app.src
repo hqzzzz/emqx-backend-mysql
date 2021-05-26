@@ -1,7 +1,15 @@
 {application, emqx_backend_mysql,
  [{description, "EMQ X Plugin Mysql Backend"},
   {vsn, "git"},
-  {modules, []},
+  {modules, [
+   emqx_backend_mysql,
+   emqx_backend_mysql_app,
+   emqx_backend_mysql_sup,
+   emqx_backend_mysql_actions,
+   emqx_backend_mysql_batcher,
+   emqx_backend_mysql_cli,
+   emqx_backend_mysql_plug
+  ]},
   {registered, [emqx_backend_mysql_sup,emqx_backend_mysql_plug]},
   
   {applications,

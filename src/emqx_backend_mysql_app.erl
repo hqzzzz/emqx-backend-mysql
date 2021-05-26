@@ -16,7 +16,12 @@
         ]).
 
 start(_StartType, _StartArgs) ->
-    {ok, Sup} = emqx_backend_mysql_sup:start_link(),
+    %获得配置文件Pool
+    Pools = application:get_env(emqx_backend_mysql, pools,[]),
+     %{ok, Sup} = emqx_backend_mysql_sup:start_link(),
+    {ok, Sup} = emqx_backend_mysql_sup:start_link(Pools),
+    %注册
+    %emqx_backend_mysql:register_metrics(),
     emqx_backend_mysql:load(application:get_all_env()),
     {ok, Sup}.
 

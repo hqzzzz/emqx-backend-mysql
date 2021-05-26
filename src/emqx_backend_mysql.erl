@@ -1,6 +1,7 @@
 -module(emqx_backend_mysql).
 
 -include("emqx_backend_mysql.hrl").
+
 -include_lib("emqx.hrl").
 
 
